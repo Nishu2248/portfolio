@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishu | Digital Marketer & Strategist</title>
+    <!-- Google Fonts for Editorial Aesthetic Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Color Palette: Luxe Deep Maroon, Pure Cream, Champagne Gold Accent */
+        :root {
+            --maroon-dark: #320012;     /* Deep Night Maroon */
+            --maroon-main: #50001D;     /* Luxe Velvet Maroon */
+            --maroon-light: #72092C;    /* Rose Maroon Accent */
+            --cream-bg: #FDFBF7;        /* Clean Pearl Cream Background */
+            --cream-card: #FFFFFF;      /* Crisp Card Background */
+            --cream-soft: #F6EFE6;      /* Soft Biscuit Cream */
+            --gold-accent: #E8D3B7;     /* Champagne Gold Highlights */
+            --text-dark: #1E0A10;       /* Dark Velvet Text */
+            --text-muted: #6B5B60;      /* Muted Warm Gray */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--cream-bg);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .editorial-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Smooth Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--cream-bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--maroon-main);
+            border-radius: 4px;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background-color: rgba(253, 251, 247, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(80, 0, 29, 0.08);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--maroon-main);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--maroon-main);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .btn-maroon {
+            background-color: var(--maroon-main);
+            color: var(--cream-bg);
+            border: 2px solid var(--maroon-main);
+            box-shadow: 0 10px 25px rgba(80, 0, 29, 0.2);
+        }
+
+        .btn-maroon:hover {
+            background-color: var(--maroon-dark);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(80, 0, 29, 0.35);
+        }
+
+        .btn-outline-gold {
+            border: 2px solid var(--gold-accent);
+            color: var(--cream-bg);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-outline-gold:hover {
+            background-color: var(--gold-accent);
+            color: var(--maroon-dark);
+            transform: translateY(-4px);
+        }
+
+        /* Section Layout Structure */
+        section {
+            padding: 110px 8%;
+            min-height: 80vh;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 60px;
+        }
+
+        .section-tag {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--maroon-light);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            color: var(--maroon-main);
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* =============================================================
+           PAGE 1: CLEAN & CENTERED HERO SECTION
+        ============================================================= */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            background: radial-gradient(circle at 50% 30%, #72092C 0%, #50001D 50%, #23000C 100%);
+            color: var(--cream-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            padding: 0 8%;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            z-index: 2;
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(253, 251, 247, 0.1);
+            border: 1px solid rgba(232, 211, 183, 0.3);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-accent);
+            margin-bottom: 25px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-pill span {
+            width: 6px;
+            height: 6px;
+            background-color: #00E676;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00E676;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            font-weight: 700;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .hero h1 span {
+            color: var(--gold-accent);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: rgba(253, 251, 247, 0.85);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            font-weight: 300;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        /* =============================================================
+           PAGE 2: ABOUT ME
+        ============================================================= */
+        .about {
+            background-color: var(--cream-bg);
+        }
+
+        .about-card {
+            background-color: var(--cream-card);
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: 0 20px 50px rgba(80, 0, 29, 0.05);
+            border: 1px solid var(--cream-soft);
+            max-width: 950px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 30px;
+            color: var(--maroon-main);
+            margin-bottom: 18px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .highlight-box {
+            background-color: var(--cream-soft);
+            padding: 28px;
+            border-radius: 16px;
+            border-left: 4px solid var(--maroon-main);
+        }
+
+        .highlight-box h4 {
+            color: var(--maroon-main);
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .highlight-box ul {
+            list-style: none;
+        }
+
+        .highlight-box ul li {
+            font-size: 14px;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .highlight-box ul li::before {
+            content: '✓';
+            color: var(--maroon-main);
+            font-weight: bold;
+        }
+
+        /* =============================================================
+           PAGE 3: SKILLS (DIGITAL MARKETING & COMPUTER BASICS)
+        ============================================================= */
+        .skills {
+            background-color: var(--cream-soft);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background-color: var(--cream-card);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-top: 6px solid var(--maroon-main);
+            transition: all 0.4s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(80, 0, 29, 0.1);
+        }
+
+        .skill-card h3 {
+            font-size: 24px;
+            color: var(--maroon-dark);
+            margin-bottom: 25px;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed rgba(80, 0, 29, 0.1);
+            color: var(--text-dark);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-list li::before {
+            content: '✦';
+            color: var(--maroon-light);
+            font-size: 11px;
+        }
+
+        /* =============================================================
+           PAGE 4: STRENGTHS & QUALITIES
+        ============================================================= */
+        .strengths {
+            background-color: var(--cream-bg);
+        }
+
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .strength-box {
+            background-color: var(--cream-card);
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid var(--cream-soft);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .strength-box:hover {
+            background-color: var(--maroon-main);
+            color: var(--cream-bg);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(80, 0, 29, 0.2);
+        }
+
+        .strength-box:hover h3, 
+        .strength-box:hover p, 
+        .strength-box:hover .icon {
+            color: var(--cream-bg);
+        }
+
+        .strength-box .icon {
+            font-size: 34px;
+            color: var(--maroon-main);
+            margin-bottom: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .strength-box h3 {
+            font-size: 19px;
+            color: var(--maroon-dark);
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .strength-box p {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+
+        /* =============================================================
+           PAGE 5: GOALS & VISION
+        ============================================================= */
+        .vision {
+            background-color: var(--cream-soft);
+            text-align: center;
+        }
+
+        .vision-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--cream-card);
+            padding: 55px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+            border: 1px solid rgba(80, 0, 29, 0.1);
+        }
+
+        .vision-container h3 {
+            font-size: 28px;
+            color: var(--maroon-main);
+            margin-bottom: 18px;
+        }
+
+        .vision-container p {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        /* =============================================================
+           PAGE 6: CONTACT
+        ============================================================= */
+        .contact {
+            background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon-main) 100%);
+            color: var(--cream-bg);
+        }
+
+        .contact .section-tag {
+            color: var(--gold-accent);
+        }
+
+        .contact .section-title {
+            color: var(--cream-bg);
+        }
+
+        .contact .section-subtitle {
+            color: rgba(253, 251, 247, 0.7);
+        }
+
+        .contact-box {
+            max-width: 650px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            padding: 50px;
+            border-radius: 24px;
+            border: 1px solid rgba(232, 211, 183, 0.2);
+            text-align: center;
+        }
+
+        .contact-info-item {
+            margin-bottom: 25px;
+        }
+
+        .contact-info-item h4 {
+            color: var(--gold-accent);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+
+        .contact-info-item p {
+            font-size: 18px;
+            color: var(--cream-bg);
+            font-weight: 500;
+        }
+
+        /* Entrance Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--maroon-dark);
+            color: rgba(253, 251, 247, 0.5);
+            text-align: center;
+            padding: 25px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Responsive Layout Adjustments */
+        @media (max-width: 900px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 40px;
+            }
+            .about-card {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="logo">Nishu <span>/ Digital Marketer</span></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#strengths">Strengths</a></li>
+                <li><a href="#vision">Vision</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- PAGE 1: CLEAN & CENTERED HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-pill">
+                <span></span> Open for Opportunities
+            </div>
+            <h1>Hello, I'm <span>Nishu</span></h1>
+            <p>An aspiring Digital Marketer with a solid foundation in computer basics, dedicated to building a creative and successful career in the online space.</p>
+            <div class="hero-btns">
+                <a href="#skills" class="btn btn-maroon">View My Skills</a>
+                <a href="#contact" class="btn btn-outline-gold">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 2: ABOUT ME -->
+    <section id="about" class="about">
+        <div class="section-header">
+            <span class="section-tag">Biography</span>
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">A glimpse into my background, passion, and educational milestone.</p>
+        </div>
+
+        <div class="about-card">
+            <div class="about-text">
+                <h3>Driven by Curiosity & Growth</h3>
+                <p>I recently completed my Senior Secondary Education (12th Grade) and immediately chose to pursue my passion for the digital realm. I am currently honing my expertise in <strong>Digital Marketing</strong>.</p>
+                <p>I possess a natural curiosity for social media algorithms, content strategy, and digital trends, making me eager to transform creative concepts into measurable brand reach.</p>
+            </div>
+            <div class="highlight-box">
+                <h4>Academic Milestones</h4>
+                <ul>
+                    <li>12th Grade Completed</li>
+                    <li>Pursuing Digital Marketing Strategy</li>
+                    <li>Certified in Computer Fundamentals</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 3: MY SKILLS -->
+    <section id="skills" class="skills">
+        <div class="section-header">
+            <span class="section-tag">Capabilities</span>
+            <h2 class="section-title">My Technical Toolkit</h2>
+            <p class="section-subtitle">Combining strategic marketing knowledge with core computer proficiency.</p>
+        </div>
+
+        <div class="skills-grid">
+            <!-- Digital Marketing Card -->
+            <div class="skill-card">
+                <h3>🚀 Digital Marketing</h3>
+                <ul class="skill-list">
+                    <li>Social Media Strategy (Instagram, Facebook)</li>
+                    <li>Search Engine Optimization (SEO) Basics</li>
+                    <li>Content Creation & Strategy</li>
+                    <li>Email Marketing Fundamentals</li>
+                    <li>Audience Research & Campaign Planning</li>
+                </ul>
+            </div>
+
+            <!-- Computer Basics Card -->
+            <div class="skill-card">
+                <h3>💻 Computer Fundamentals</h3>
+                <ul class="skill-list">
+                    <li>Microsoft Office Suite (Word, PowerPoint, Excel)</li>
+                    <li>Graphic Designing via Canva</li>
+                    <li>Web Research & Efficient Data Entry</li>
+                    <li>File & System Management</li>
+                    <li>Professional Communication & Writing</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 4: STRENGTHS & QUALITIES -->
+    <section id="strengths" class="strengths">
+        <div class="section-header">
+            <span class="section-tag">Attributes</span>
+            <h2 class="section-title">Core Strengths</h2>
+            <p class="section-subtitle">Personal qualities that shape my professional dedication.</p>
+        </div>
+
+        <div class="strengths-grid">
+            <div class="strength-box">
+                <div class="icon">⚡</div>
+                <h3>Hardworking</h3>
+                <p>I approach every project with thorough dedication and unwavering focus.</p>
+            </div>
+
+            <div class="strength-box">
+                <div class="icon">💡</div>
+                <h3>Quick Learner</h3>
+                <p>I rapidly adapt to new digital software, tools, and marketing trends.</p>
+            </div>
+
+            <div class="strength-box">
+                <div class="icon">🎯</div>
+                <h3>Goal-Oriented</h3>
+                <p>I prioritize punctuality and ensure task completion within deadlines.</p>
+            </div>
+
+            <div class="strength-box">
+                <div class="icon">🤝</div>
+                <h3>Great Collaborator</h3>
+                <p>Strong interpersonal and communication skills to work effectively in teams.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 5: VISION & GOALS -->
+    <section id="vision" class="vision">
+        <div class="section-header">
+            <span class="section-tag">Aspiration</span>
+            <h2 class="section-title">Future Vision</h2>
+            <p class="section-subtitle">My professional direction and commitment to continuous learning.</p>
+        </div>
+
+        <div class="vision-container">
+            <h3 class="editorial-font">Aiming for Excellence in Digital Growth</h3>
+            <p>My goal is to evolve into a complete Digital Marketing Specialist. I want to help modern brands strengthen their online presence through authentic storytelling, data-backed strategies, and impactful campaigns.</p>
+            <a href="#contact" class="btn btn-maroon">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- PAGE 6: CONTACT -->
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <span class="section-tag">Connect</span>
+            <h2 class="section-title">Let's Work Together</h2>
+            <p class="section-subtitle">Feel free to reach out for collaborations, internships, or inquiries.</p>
+        </div>
+
+        <div class="contact-box">
+            <div class="contact-info-item">
+                <h4>Full Name</h4>
+                <p>Nishu</p>
+            </div>
+
+            <div class="contact-info-item">
+                <h4>Email Address</h4>
+                <p>nishu.digital@example.com</p>
+            </div>
+
+            <div class="contact-info-item">
+                <h4>Location</h4>
+                <p>India</p>
+            </div>
+
+            <div class="contact-info-item">
+                <h4>Status</h4>
+                <p style="font-size: 15px; color: var(--gold-accent);">Available for Internships & Projects</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Nishu | All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
